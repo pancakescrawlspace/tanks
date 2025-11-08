@@ -2,6 +2,8 @@
 
 # De tanks X en Y hebben de vorm van een afgeknotte kegel met een hoogte
 # van 1m, basis een cirkel van diameter 2m, en als top een cirkel 1m in diameter.
+# Dit komt niet precies overeen met het plaatje, maar mijn idee was dat het
+# antwoord waarschijnlijk niet zou moeten afhangen van de exacte verhoudingen.
 # X staat met de smalle kant naar beneden, Y staat 'rechtop'
 pi=3.14159265358979323846
 define area_x(h) { width = 1 + h; return pi * width^2 / 4 }
