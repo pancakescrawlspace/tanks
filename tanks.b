@@ -12,7 +12,9 @@ delta_t = .0001
 height_x = 1 # peil van het watervolume (dus niet hoogte v/d tank)
 height_y = 1
 tol = .0001 # bij deze inhoud (in m^3) zeggen we dat de tank 'leeg' is
-f = .002 # hoeveelheid water (in m^3) die in 1 seconde onder een druk van een waterkolom van 1m hoogte door de afvoer gaat, geen idee of dit realistisch is
+f = .002 # hoeveelheid water (in m^3) die in 1 seconde onder een druk van een waterkolom van 1m hoogte door de afvoer gaat
+         # geen idee of dit realistisch is, maar wederom denk ik niet 
+         # dat het hierop aankomt (en het lijkt me geen gekke gok)
 for (t = 0; height_x > tol && height_y > tol; t += delta_t)
 {
   height_x -= f * height_x * delta_t / area_x(height_x) # of als d.v.: dh/dt = -f * h / (opp. watervolume)
