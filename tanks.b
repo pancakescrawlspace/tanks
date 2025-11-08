@@ -25,8 +25,8 @@ for (t = 0; height_x > xtol && height_y > ytol; t++) # seconds
   # een print-opdracht doe (beetje gekke manier, maar goed) 
   for (tt = 0; tt < steps; tt++)
   {
-    height_x -= k * height_x / width_x(height_x)^2 # of als d.v.: dh/dt = -f * h / (opp. watervolume)
-    height_y -= k * height_y / width_y(height_y)^2 # oftewel (opp. watervolume) * d(log h)/dt = constant
+    height_x *= 1 - k / width_x(height_x)^2 # of als d.v.: dh/dt = -f * h / (opp. watervolume)
+    height_y *= 1 - k / width_y(height_y)^2 # oftewel (opp. watervolume) * d(log h)/dt = constant
 							# we zeggen dus: de druk op het water dat door de afvoer
 							# stroomt is evenredig met h, oftewel naarmate de tank
 							# verder leegloopt gaat de druk naar nul, en de tank
