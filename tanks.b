@@ -1,5 +1,5 @@
 #!/usr/bin/bc -l
-pi=4*a(1)
+pi=3.14159265358979323846
 define area_x(h) { width = 1 + h; return pi * width^2 / 4 }
 define area_y(h) { width = 2 - h; return pi * width^2 / 4 }
 delta_t = .0001
