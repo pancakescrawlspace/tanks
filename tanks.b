@@ -7,14 +7,15 @@ pi=3.14159265358979323846
 define area_x(h) { width = 1 + h; return pi * width^2 / 4 }
 define area_y(h) { width = 2 - h; return pi * width^2 / 4 }
 delta_t = .0001
-height_x = 1
+height_x = 1 # peil van het watervolume (dus niet hoogte v/d tank)
 height_y = 1
 tol = .0001 # bij deze inhoud (in m^3) zeggen we dat de tank 'leeg' is
 f = .002 # hoeveelheid water (in m^3) die in 1 seconde onder een druk van een waterkolom van 1m hoogte door de afvoer gaat, geen idee of dit realistisch is
 for (t = 0; height_x > tol && height_y > tol; t += delta_t)
 {
   height_x -= f * height_x * delta_t / area_x(height_x) # of als d.v.: dh/dt = -f * h / (opp. watervolume)
-  height_y -= f * height_y * delta_t / area_y(height_y) # we zeggen dus: de druk op het water dat door de afvoer
+  height_y -= f * height_y * delta_t / area_y(height_y) # oftewel (opp. watervolume) * d(log h)/dt = constant
+							# we zeggen dus: de druk op het water dat door de afvoer
 							# stroomt is evenredig met h, oftewel naarmate de tank
 							# verder leegloopt gaat de druk naar nul, en de tank
 							# raakt dus nooit echt leeg. op zich is dat best een
