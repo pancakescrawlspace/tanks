@@ -1,0 +1,18 @@
+#!/usr/bin/bc -l
+pi=4*a(1)
+define area_x(h) { width = 1 + h; return pi * width^2 / 4 }
+define area_y(h) { width = 2 - h; return pi * width^2 / 4 }
+delta_t = .0001
+height_x = 1
+height_y = 1
+tol = .0001 # bij deze inhoud (in m^3) zeggen we dat de tank 'leeg' is
+f = .002 # hoeveelheid water (in m^3) die in 1 seconde onder een druk van een waterkolom van 1m hoogte door de afvoer gaat
+for (t = 0; height_x > tol && height_y > tol; t += delta_t)
+{
+  delta_height_x = -f * height_x * delta_t / area_x(height_x);
+  delta_height_y = -f * height_y * delta_t / area_y(height_y);
+  height_x += delta_height_x;
+  height_y += delta_height_y;
+  print "t: ", t, "   X: ", height_x, "   Y: ", height_y, "\n"
+}
+quit
