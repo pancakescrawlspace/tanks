@@ -6,26 +6,27 @@
 # antwoord waarschijnlijk niet zou moeten afhangen van de exacte verhoudingen.
 # X staat met de smalle kant naar beneden, Y staat 'rechtop'
 pi=3.14159265358979323846
-define area_x(h) { width = 1 + h; return pi * width^2 / 4 }
-define area_y(h) { width = 2 - h; return pi * width^2 / 4 }
+define width_x(h) { return 1 + h; }
+define width_y(h) { return 2 - h; }
 steps = 1000 # het aantal eenheden waarin we een seconde verdelen: 1/steps = "delta_t"
 height_x = 1 # peil van het watervolume (dus niet hoogte v/d tank)
 height_y = 1
 xtol = .0001 # bij dit peil zeggen we dat (voor X) de tank 'leeg' is (voor Y doen we gedeeld door 4, wegens het grotere grondvlak) 
 ytol = xtol / 4
-f = .000002 # hoeveelheid water (in m^3) die in de spanne van een _tijdstap_ 
+f = .002 # hoeveelheid water (in m^3) die in de spanne van een seconde 
          # onder een druk van een waterkolom van 1m hoogte door de afvoer gaat
          # geen idee of dit realistisch is, maar wederom denk ik niet 
-         # dat het hierop aankomt (en het lijkt me geen gekke gok: 2 liter/s
-         # bij een waterkolom van 1 meter
+         # dat het hierop aankomt (en het lijkt me geen gekke gok)
+k = 4 * f / steps / pi # evenredigheidsconstante voor de iteratiestap
+                       # de pi / 4 is voor het bepalen van het wateroppervlak
 for (t = 0; height_x > xtol && height_y > ytol; t++) # seconds
 {
   # gebruik een geneste for loop om te voorkomen dat ik voor elke tijdstap
   # een print-opdracht doe (beetje gekke manier, maar goed) 
   for (tt = 0; tt < steps; tt++)
   {
-    height_x -= f * height_x / area_x(height_x) # of als d.v.: dh/dt = -f * h / (opp. watervolume)
-    height_y -= f * height_y / area_y(height_y) # oftewel (opp. watervolume) * d(log h)/dt = constant
+    height_x -= k * height_x / width_x(height_x)^2 # of als d.v.: dh/dt = -f * h / (opp. watervolume)
+    height_y -= k * height_y / width_y(height_y)^2 # oftewel (opp. watervolume) * d(log h)/dt = constant
 							# we zeggen dus: de druk op het water dat door de afvoer
 							# stroomt is evenredig met h, oftewel naarmate de tank
 							# verder leegloopt gaat de druk naar nul, en de tank
