@@ -11,11 +11,12 @@ define area_y(h) { width = 2 - h; return pi * width^2 / 4 }
 steps = 1000 # het aantal eenheden waarin we een seconde verdelen: 1/steps = "delta_t"
 height_x = 1 # peil van het watervolume (dus niet hoogte v/d tank)
 height_y = 1
-tol = .0001 # bij deze inhoud (in m^3) zeggen we dat de tank 'leeg' is
+xtol = .0001 # bij dit peil zeggen we dat (voor X) de tank 'leeg' is (voor Y doen we gedeeld door 4, wegens het grotere grondvlak) 
+ytol = xtol / 4
 f = .002 # hoeveelheid water (in m^3) die in 1 seconde onder een druk van een waterkolom van 1m hoogte door de afvoer gaat
          # geen idee of dit realistisch is, maar wederom denk ik niet 
          # dat het hierop aankomt (en het lijkt me geen gekke gok)
-for (t = 0; height_x > tol && height_y > tol; t++) # seconds
+for (t = 0; height_x > xtol && height_y > ytol; t++) # seconds
 {
   # gebruik een geneste for loop om te voorkomen dat ik voor elke tijdstap
   # een print-opdracht doe (beetje gekke manier, maar goed) 
@@ -30,7 +31,7 @@ for (t = 0; height_x > tol && height_y > tol; t++) # seconds
 							# goede beschrijving van de werkelijkheid, maar om te
 							# bepalen welke tank het eerst "leeg" is moet je dus wel
 							# een definitie van leeg hebben die uberhaupt voor kan
-							# komen. ik zeg hier: 'leeg' betekent volume < 0.1 liter
+							# komen. ik zeg hier: 'leeg' betekent volume < 78cl
   }
   print "t: ", t+1, "s  X: ", height_x, "m  Y: ", height_y, "m\n"
 }
