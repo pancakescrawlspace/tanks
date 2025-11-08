@@ -8,7 +8,7 @@
 pi=3.14159265358979323846
 define area_x(h) { width = 1 + h; return pi * width^2 / 4 }
 define area_y(h) { width = 2 - h; return pi * width^2 / 4 }
-steps = 1000 # het aantal eenheden waarin we een seconde verdelen
+steps = 1000 # het aantal eenheden waarin we een seconde verdelen: 1/steps = "delta_t"
 height_x = 1 # peil van het watervolume (dus niet hoogte v/d tank)
 height_y = 1
 tol = .0001 # bij deze inhoud (in m^3) zeggen we dat de tank 'leeg' is
