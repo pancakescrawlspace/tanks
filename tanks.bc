@@ -11,6 +11,6 @@ for (t = 0; height_x > tol && height_y > tol; t += delta_t)
 {
   height_x -= f * height_x * delta_t / area_x(height_x);
   height_y -= f * height_y * delta_t / area_y(height_y);
-  print "t: ", t, "s   X: ", height_x, "m   Y: ", height_y, "m\n"
+  print "t: ", t, "s  X: ", height_x, "m  Y: ", height_y, "m\n"
 }
 quit
