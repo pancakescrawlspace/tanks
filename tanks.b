@@ -19,7 +19,7 @@ for (t = 0; height_x > tol && height_y > tol; t++) # seconds
 {
   # gebruik een geneste for loop om te voorkomen dat ik voor elke tijdstap
   # een print-opdracht doe (beetje gekke manier, maar goed) 
-  for (tt = 0; tt < steps && height_x > tol && height_y > tol; tt++)
+  for (tt = 0; tt < steps; tt++)
   {
     height_x -= f * height_x / steps / area_x(height_x) # of als d.v.: dh/dt = -f * h / (opp. watervolume)
     height_y -= f * height_y / steps / area_y(height_y) # oftewel (opp. watervolume) * d(log h)/dt = constant
