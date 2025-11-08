@@ -13,7 +13,7 @@ height_x = 1 # peil van het watervolume (dus niet hoogte v/d tank)
 height_y = 1
 xtol = .0001 # bij dit peil zeggen we dat (voor X) de tank 'leeg' is (voor Y doen we gedeeld door 4, wegens het grotere grondvlak) 
 ytol = xtol / 4
-f = .000002 # hoeveelheid water (in m^3) die in de spanne van een _tijdstip_ 
+f = .000002 # hoeveelheid water (in m^3) die in de spanne van een _tijdstap_ 
          # onder een druk van een waterkolom van 1m hoogte door de afvoer gaat
          # geen idee of dit realistisch is, maar wederom denk ik niet 
          # dat het hierop aankomt (en het lijkt me geen gekke gok: 2 liter/s
