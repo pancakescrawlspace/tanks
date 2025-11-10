@@ -36,6 +36,6 @@ for (t = 0; height_x > xtol && height_y > ytol; t++) # seconds
 							# een definitie van leeg hebben die uberhaupt voor kan
 							# komen. ik zeg hier: 'leeg' betekent volume < 78cl
   }
-  print "t: ", t+1, "s  X: ", height_x, "m  Y: ", height_y, "m\n"
+  print t+1, " ", height_x, " ", height_y, "\n"
 }
 quit
