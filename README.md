@@ -13,6 +13,7 @@ Zie:
 - https://www.linkedin.com/posts/niranjan-k-sabu-401489204_fluidmechanics-engineeringthoughts-mechanicalengineering-activity-7394768513145561088-b_XH
 - https://www.youtube.com/watch?v=aQfrhdIH3Tk
 - https://www.reddit.com/r/theydidthemath/comments/1otgy4d/request_came_across_this_post_and_got_me/
+- https://physics.stackexchange.com/questions/863904/which-orientation-of-a-truncated-cone-will-drain-faster
 
 ## Wiskunde
 
